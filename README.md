@@ -41,6 +41,22 @@ And then add it to your _php.ini_:
 
     extension=sass.so
 
+Always remember to enable it within PHP as well
+
+    phpenmod sass
+
+## Binary installation / deployment
+
+As long as you have the final 'sass.so' extension file, you can deploy SASS PHP across any server. There's a few caveats, of course. The development & production servers have to run the same version of PHP. You then copy the installed 'sass.so' from the /usr/lib/php/<php version> directory shown during 'make install' on your development environment to the same directory on your production boxes.
+
+As usual, make sure you add the extension to your _php.ini_ on your production environments:
+
+    extension=sass.so
+
+Always remember to enable it within PHP as well
+
+    phpenmod sass
+
 ## Usage
 
 This extension has a very simple API:
