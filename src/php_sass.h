@@ -14,7 +14,7 @@
 #include "config.h"
 #endif
 
-#define SASS_VERSION "0.5.16"
+#define SASS_VERSION "0.5.17"
 #define SASS_FLAVOR "Sassyphpras"
 
 #include <php.h>

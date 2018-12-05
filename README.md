@@ -2,7 +2,7 @@
 
 The `sass` extension for PHP gives you an object-oriented system of parsing [Sass](http://sass-lang.com/) from within your PHP applications. Under the hood it uses [libsass](https://github.com/hcatlin/libsass) to provide super speedy and compatible Sass parsing.
 
-![Libsass 3.5.4](https://img.shields.io/badge/libsass-3.5.4-yellow.svg) [![Build Status](https://travis-ci.org/absalomedia/sassphp.svg)](https://travis-ci.org/absalomedia/sassphp) [![codecov](https://codecov.io/gh/absalomedia/sassphp/branch/master/graph/badge.svg)](https://codecov.io/gh/absalomedia/sassphp) [![Patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/bePatron?u=14641360)
+![Libsass 3.5.5](https://img.shields.io/badge/libsass-3.5.5-yellow.svg) [![Build Status](https://travis-ci.org/absalomedia/sassphp.svg)](https://travis-ci.org/absalomedia/sassphp) [![codecov](https://codecov.io/gh/absalomedia/sassphp/branch/master/graph/badge.svg)](https://codecov.io/gh/absalomedia/sassphp) [![Patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/bePatron?u=14641360)
 
 ## What's Sass?
 
@@ -91,13 +91,13 @@ You can set the style of your SASS file to suit your needs:
 
 As the [Libsass](https://github.com/hcatlin/libsass) library has matured to get closer to 100% SASS coverage, so this extension has also matured:
 
-* SASS file compilation is an array when a source map file is specified.
-* The ability to define source comments
-* The ability to embed the source map into the CSS output
-* The ability to specify .SASS file input instead of .SCSS
-* The ability to set a source map path, required when generating a dedicated .map file
-* The ability to define a root directory for the source map itself
-* PHP 5.4 to PHP 7.3 (nightly) support
+- SASS file compilation is an array when a source map file is specified.
+- The ability to define source comments
+- The ability to embed the source map into the CSS output
+- The ability to specify .SASS file input instead of .SCSS
+- The ability to set a source map path, required when generating a dedicated .map file
+- The ability to define a root directory for the source map itself
+- PHP 5.4 to PHP 7.3 (nightly) support
 
 The output of `compileFile()` is an array when creating source map files, allowing both compiled SASS file and .map file to be generated in the same function call.
 
@@ -134,10 +134,10 @@ You can set the source map file for the library to use:
 This needs to be done prior to getting the output of the map file. As it stands, both the output of the SASS file compile & the SASS source map file generation sequence are both strings.
 
 The first array item will always be the compiled SASS file:
-$css[0]
+\$css[0]
 
 The second array item will always be the source map output:
-$css[1]
+\$css[1]
 
 You can set the root of the generated source map file like so:
 
@@ -165,13 +165,14 @@ If there's a problem, the extension will throw a `SassException`:
 
 These extensions also utilise the [Libsass](https://github.com/hcatlin/libsass) library & remain in varying states of completion:
 
-* Facebook [HHVM](https://github.com/absalomedia/sasshhvm) native (non Zend) extension - with Libsass 3.5.2 - tested up to HHVM 3.11.x
-* [Nginx](https://github.com/absalomedia/sass-nginx-module) module - with Libsass 3.5.2
+- Facebook [HHVM](https://github.com/absalomedia/sasshhvm) native (non Zend) extension - with Libsass 3.5.5 - tested up to HHVM 3.11.x
+- [Nginx](https://github.com/absalomedia/sass-nginx-module) module - with Libsass 3.5.5
 
 ## Changelog
 
 | Release | Description                                                                               |
 | ------- | ----------------------------------------------------------------------------------------- |
+| 0.5.17  | Engine - Vroom vroom (Libsass 3.5.5)                                                      |
 | 0.5.16  | Humpback - Maloo (Libsass 3.5.4)                                                          |
 | 0.5.15  | Fallout - Atom (Libsass 3.5.2)                                                            |
 | 0.5.14  | Karol - Caroline (Libsass 3.4.8)                                                          |
