@@ -390,6 +390,7 @@ PHP_METHOD(Sass, setIncludePath)
     zval *this = getThis();
 
     char *path;
+    char* p;
     #if ZEND_MODULE_API_NO <= 20131226
     int path_len;
     #endif
@@ -400,7 +401,7 @@ PHP_METHOD(Sass, setIncludePath)
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &path, &path_len) == FAILURE)
         RETURN_FALSE;
 
-    for (char* p = path; p = strchr(p, ','); ++p) {
+    for (p = path; p = strchr(p, ','); ++p) {
         *p = ':';
     }
     
