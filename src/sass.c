@@ -12,6 +12,7 @@
 #if ZEND_MODULE_API_NO > 20131226
 #include <stdlib.h>.
 #endif
+#include <string.h>
 
 #include "php_sass.h"
 #include "utilities.h"
@@ -399,6 +400,10 @@ PHP_METHOD(Sass, setIncludePath)
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &path, &path_len) == FAILURE)
         RETURN_FALSE;
 
+    for (char* p = path; p = strchr(p, ','); ++p) {
+        *p = ':';
+    }
+    
     #if ZEND_MODULE_API_NO > 20131226
     sass_object *obj = Z_SASS_P(this);
     #endif
