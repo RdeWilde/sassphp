@@ -408,15 +408,9 @@ PHP_METHOD(Sass, setIncludePath)
         *p = ':';
     }    
 
-    ZEND_PARSE_PARAMETERS_START(1, -1) // specify no max arg count
-        Z_PARAM_VARIADIC('+', path, path_len)
-    ZEND_PARSE_PARAMETERS_END();
-
-    /*
     if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "+",&path, &path_len) == FAILURE) {
         RETURN_FALSE;
     }
-    */
     
     #if ZEND_MODULE_API_NO > 20131226
     sass_object *obj = Z_SASS_P(this);
@@ -583,11 +577,12 @@ PHP_METHOD(Sass, setPluginPath)
     size_t path_len;
     #endif
 
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "+", &path, &path_len) == FAILURE)
-        RETURN_FALSE;
-
     for (p = path; p = strchr(p, ','); ++p) {
         *p = ':';
+    }   
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "+", &path, &path_len) == FAILURE) {
+        RETURN_FALSE;
     }
 
     #if ZEND_MODULE_API_NO > 20131226
