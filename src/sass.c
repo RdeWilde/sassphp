@@ -408,7 +408,7 @@ PHP_METHOD(Sass, setIncludePath)
         *p = ':';
     }    
 
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s",&path, &path_len) == FAILURE) {
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "a",&path, &path_len) == FAILURE) {
         RETURN_FALSE;
     }
     
@@ -581,7 +581,7 @@ PHP_METHOD(Sass, setPluginPath)
         *p = ':';
     }   
 
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &path, &path_len) == FAILURE) {
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "a", &path, &path_len) == FAILURE) {
         RETURN_FALSE;
     }
 
