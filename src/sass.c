@@ -395,7 +395,7 @@ PHP_METHOD(Sass, setIncludePath)
 {
     zval *this = getThis();
 
-    zval *path;
+    char *path;
     char* p;
     #if ZEND_MODULE_API_NO <= 20131226
     int path_len;
