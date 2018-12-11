@@ -37,6 +37,7 @@ typedef struct sass_object {
     bool map_embed;
     bool map_contents;
     char* map_root;
+    char* plugin_path;
     #if PHP_MAJOR_VERSION >= 7
     zend_object zo;
     #endif
@@ -70,6 +71,8 @@ void sass_free_storage(void *object TSRMLS_DC)
         efree(obj->map_path);
     if (obj->map_root != NULL)
         efree(obj->map_root);
+    if (obj->plugin_path != NULL)
+        efree(obj->plugin_path);    
     zend_hash_destroy(obj->zo.properties);
     FREE_HASHTABLE(obj->zo.properties);
     efree(obj);
@@ -143,6 +146,7 @@ PHP_METHOD(Sass, __construct)
     obj->map_contents = false;
     obj->omit_map_url = true;
     obj->precision = 5;
+    obj->plugin_path = NULL;
 }
 
 
@@ -170,7 +174,9 @@ void set_options(sass_object *this, struct Sass_Context *ctx)
     if (this->map_root != NULL) {
     sass_option_set_source_map_root(opts, this->map_root);
     }
-
+    if (this->plugin_path != NULL) {
+    sass_option_set_plugin_path(opts, this->plugin_path);
+    }
 }
 
 /**
@@ -531,6 +537,64 @@ PHP_METHOD(Sass, setMapRoot)
 }
 
 
+PHP_METHOD(Sass, getPluginPath)
+{
+    zval *this = getThis();
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "", NULL) == FAILURE) {
+        RETURN_FALSE;
+    }
+
+    #if ZEND_MODULE_API_NO > 20131226
+    sass_object *obj = Z_SASS_P(this);
+    #endif
+    #if ZEND_MODULE_API_NO <= 20131226
+    sass_object *obj = (sass_object *)zend_object_store_get_object(this TSRMLS_CC);
+    #endif
+
+    #if ZEND_MODULE_API_NO <= 20131226
+    if (obj->plugin_path == NULL) RETURN_STRING("", 1);
+    RETURN_STRING(obj->plugin_path, 1);
+    #endif
+
+    #if ZEND_MODULE_API_NO > 20131226
+    if (obj->plugin_path == NULL) RETURN_STRING("");
+    RETURN_STRING(obj->plugin_path);
+    #endif
+}
+
+PHP_METHOD(Sass, setPluginPath)
+{
+    zval *this = getThis();
+
+    char *path;
+    #if ZEND_MODULE_API_NO <= 20131226
+    int path_len;
+    #endif
+    #if ZEND_MODULE_API_NO > 20131226
+    size_t path_len;
+    #endif
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &path, &path_len) == FAILURE)
+        RETURN_FALSE;
+
+    for (p = path; p = strchr(p, ','); ++p) {
+        *p = ':';
+    }
+
+    #if ZEND_MODULE_API_NO > 20131226
+    sass_object *obj = Z_SASS_P(this);
+    #endif
+    #if ZEND_MODULE_API_NO <= 20131226
+    sass_object *obj = (sass_object *)zend_object_store_get_object(this TSRMLS_CC);
+    #endif
+
+    if (obj->plugin_path != NULL)
+        efree(obj->plugin_path);
+    obj->plugin_path = estrndup(path, path_len);
+
+    RETURN_NULL();
+}
 
 
 PHP_METHOD(Sass, getPrecision)
@@ -763,6 +827,10 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_sass_setMapPath, 0, 0, 1)
     ZEND_ARG_INFO(0, map_path)
 ZEND_END_ARG_INFO()
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_sass_setPluginPath, 0, 0, 1)
+    ZEND_ARG_INFO(0, plugin_path)
+ZEND_END_ARG_INFO()
+
 ZEND_BEGIN_ARG_INFO_EX(arginfo_sass_setMapRoot, 0, 0, 1)
     ZEND_ARG_INFO(0, map_root)
 ZEND_END_ARG_INFO()
@@ -787,6 +855,8 @@ zend_function_entry sass_methods[] = {
     PHP_ME(Sass,  setMapPath,        arginfo_sass_setMapPath,     ZEND_ACC_PUBLIC)
     PHP_ME(Sass,  getMapRoot,        arginfo_sass_void,           ZEND_ACC_PUBLIC)
     PHP_ME(Sass,  setMapRoot,        arginfo_sass_setMapRoot,     ZEND_ACC_PUBLIC)
+    PHP_ME(Sass,  getPluginPath,     arginfo_sass_void,           ZEND_ACC_PUBLIC)
+    PHP_ME(Sass,  setPluginPath,     arginfo_sass_setPluginPath,  ZEND_ACC_PUBLIC)   
     PHP_ME(Sass,  getLibraryVersion, arginfo_sass_void,           ZEND_ACC_PUBLIC | ZEND_ACC_STATIC)
     PHP_MALIAS(Sass, compile_file, compileFile, NULL, ZEND_ACC_PUBLIC)
     {NULL, NULL, NULL}
