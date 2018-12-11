@@ -568,6 +568,7 @@ PHP_METHOD(Sass, setPluginPath)
     zval *this = getThis();
 
     char *path;
+    char *p;
     #if ZEND_MODULE_API_NO <= 20131226
     int path_len;
     #endif
