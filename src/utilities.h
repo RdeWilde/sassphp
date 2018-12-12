@@ -5,7 +5,7 @@
  * https://github.com/jamierumbelow/sassphp
  * Copyright (c)2012 Jamie Rumbelow <http://jamierumbelow.net>
  *
- * Fork updated and maintained by https://github.com/pilif
+ * Fork updated and maintained by https://github.com/absalomedia
  */
 
 char *trim(char *str);

@@ -28,7 +28,7 @@ typedef struct sass_object {
     zend_object zo;
     #endif
     int style;
-    char* include_paths;
+    string_list* include_paths;
     bool comments;
     bool indent;
     long precision;
@@ -37,7 +37,10 @@ typedef struct sass_object {
     bool map_embed;
     bool map_contents;
     char* map_root;
-    char* plugin_path;
+    string_list* plugin_path;
+  /*  struct Sass_Importer_List headers;
+    struct Sass_Importer_List importers;
+    struct Sass_Function_List functions; */
     #if PHP_MAJOR_VERSION >= 7
     zend_object zo;
     #endif
