@@ -172,6 +172,7 @@ These extensions also utilise the [Libsass](https://github.com/hcatlin/libsass) 
 
 | Release | Description                                                                               |
 | ------- | ----------------------------------------------------------------------------------------- |
+| 0.6.0   | Symfony - Composer integration                                                            |
 | 0.5.17  | Engine - Vroom vroom (Libsass 3.5.5)                                                      |
 | 0.5.16  | Humpback - Maloo (Libsass 3.5.4)                                                          |
 | 0.5.15  | Fallout - Atom (Libsass 3.5.2)                                                            |
