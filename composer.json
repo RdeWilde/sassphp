@@ -6,7 +6,7 @@
         "sass",
         "php",
         "libsass",
-        "extensions",
+        "extensions"
     ],
     "homepage": "https://github.com/absalomedia/sassphp",
     "license": "MIT",
@@ -36,5 +36,5 @@
         "phpunit/phpcov": "^3.1",
         "phpunit/phpunit": "^5.7"
     },
-    "scripts": { "post-install-cmd": [ "sh scripts/install_libsass.sh" ]
+    "scripts": { "post-install-cmd": [ "sh scripts/sassphp_install.sh" ]
 }

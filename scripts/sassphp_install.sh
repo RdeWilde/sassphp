@@ -7,7 +7,6 @@ if [ ! -d sassphp ]; then
 fi
     cd sassphp
     git pull
-    git reset --hard 4769678
     git submodule init
     git submodule update
     php install.php
