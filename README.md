@@ -2,7 +2,7 @@
 
 The `sass` extension for PHP gives you an object-oriented system of parsing [Sass](http://sass-lang.com/) from within your PHP applications. Under the hood it uses [libsass](https://github.com/hcatlin/libsass) to provide super speedy and compatible Sass parsing.
 
-![Libsass 3.5.5](https://img.shields.io/badge/libsass-3.5.5-yellow.svg) [![Build Status](https://travis-ci.org/absalomedia/sassphp.svg)](https://travis-ci.org/absalomedia/sassphp) [![codecov](https://codecov.io/gh/absalomedia/sassphp/branch/master/graph/badge.svg)](https://codecov.io/gh/absalomedia/sassphp) [![Patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/bePatron?u=14641360)
+![Libsass 3.6.1](https://img.shields.io/badge/libsass-3.6.1-yellow.svg) [![Build Status](https://travis-ci.org/absalomedia/sassphp.svg)](https://travis-ci.org/absalomedia/sassphp) [![codecov](https://codecov.io/gh/absalomedia/sassphp/branch/master/graph/badge.svg)](https://codecov.io/gh/absalomedia/sassphp) [![Patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/bePatron?u=14641360)
 
 ## What's Sass?
 
@@ -172,6 +172,7 @@ These extensions also utilise the [Libsass](https://github.com/hcatlin/libsass) 
 
 | Release | Description                                                                               |
 | ------- | ----------------------------------------------------------------------------------------- |
+| 0.6.1   | Bond - Monaco (Libsass 3.6.1)                                                             |
 | 0.6.0   | Symfony - Composer integration                                                            |
 | 0.5.17  | Engine - Vroom vroom (Libsass 3.5.5)                                                      |
 | 0.5.16  | Humpback - Maloo (Libsass 3.5.4)                                                          |
