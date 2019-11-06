@@ -9,7 +9,7 @@ php:
 addons:
   apt:
     packages:
-      - php5-dev
+      - php7.0-dev
       - gdb
 
 env:
