@@ -2,7 +2,7 @@
 
 The `sass` extension for PHP gives you an object-oriented system of parsing [Sass](http://sass-lang.com/) from within your PHP applications. Under the hood it uses [libsass](https://github.com/hcatlin/libsass) to provide super speedy and compatible Sass parsing.
 
-![Libsass 3.6.1](https://img.shields.io/badge/libsass-3.6.1-yellow.svg) [![Build Status](https://travis-ci.org/absalomedia/sassphp.svg)](https://travis-ci.org/absalomedia/sassphp) [![codecov](https://codecov.io/gh/absalomedia/sassphp/branch/master/graph/badge.svg)](https://codecov.io/gh/absalomedia/sassphp) [![Patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/bePatron?u=14641360)
+![Libsass 3.6.3](https://img.shields.io/badge/libsass-3.6.3-yellow.svg) [![Build Status](https://travis-ci.org/absalomedia/sassphp.svg)](https://travis-ci.org/absalomedia/sassphp) [![codecov](https://codecov.io/gh/absalomedia/sassphp/branch/master/graph/badge.svg)](https://codecov.io/gh/absalomedia/sassphp) [![Patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/bePatron?u=14641360)
 
 ## What's Sass?
 

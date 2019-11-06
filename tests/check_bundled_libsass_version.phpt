@@ -5,7 +5,7 @@ check bundled libsass version
 --FILE--
 <?php
 
-echo version_compare(Sass::getLibraryVersion(), '3.6.1')
+echo version_compare(Sass::getLibraryVersion(), '3.6.3')
 
 ?>
 --EXPECT--
