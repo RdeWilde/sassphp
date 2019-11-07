@@ -127,6 +127,18 @@ class Sass {
 	 * @return string
 	 */
 	public function getMapRoot() {}
+	/**
+	 * Set LibSass importer
+	 * @param string|string[] $import
+	 * @return void
+	 */
+	public function setImporter($import) {}	
+    /**
+	 * Set LibSass functions
+	 * @param string|string[] $function
+	 * @return void
+	 */
+	public function setFunctions($function) {}	
     /**
 	 * Get LibSass library version
 	 * @return string

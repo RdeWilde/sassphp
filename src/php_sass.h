@@ -14,7 +14,7 @@
 #include "config.h"
 #endif
 
-#define SASS_VERSION "0.6.2"
+#define SASS_VERSION "0.7"
 #define SASS_FLAVOR "Sassyphpras"
 
 #include <php.h>
@@ -61,5 +61,7 @@ PHP_METHOD(Sass, getMapPath);
 PHP_METHOD(Sass, setMapPath);
 PHP_METHOD(Sass, getMapRoot);
 PHP_METHOD(Sass, setMapRoot);
+PHP_METHOD(Sass, setImporter);
+PHP_METHOD(Sass, setFunctions);
 
 #endif
